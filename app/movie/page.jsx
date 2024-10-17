@@ -1,4 +1,4 @@
-import Movie from "../Movie";
+import Movie from "../Movie"; // Zakładam, że komponent Movie jest w folderze movie
 
 const Movies = async () => {
   const data = await fetch(
@@ -7,7 +7,7 @@ const Movies = async () => {
   );
   const res = await data.json();
 
-  return ( 
+  return (
     <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-fluid mx-auto">
       {res.results.map((movie) => (
         <Movie
@@ -21,7 +21,6 @@ const Movies = async () => {
       ))}
     </div>
   );
-}
- 
-export default Movies;
+};
 
+export default Movies;
