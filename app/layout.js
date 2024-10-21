@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} mx-32 my-12`}>
+      <body className={`${montserrat.className} mx-2 my-2`}>
       <Navbar/>
         {children}
       </body>
