@@ -31,7 +31,7 @@ export default function CarouselSliderTv({ tvShows = [] }) {
               <img
                 src={`https://image.tmdb.org/t/p/original${tvShow.poster_path}`}
                 alt={tvShow.name}
-                className="w-full h-full cursor-pointer"
+                className="w-full h-full cursor-pointer rounded-md"
               />
             </Link>
           </li>

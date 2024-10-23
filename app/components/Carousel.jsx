@@ -29,7 +29,7 @@ export default function CarouselSlider({ movies = [] }) {
               <img
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt={movie.title}
-                className="w-full h-full  cursor-pointer" // Ensure cursor indicates clickability
+                className="w-full h-full  cursor-pointer rounded-md" // Ensure cursor indicates clickability
               />
             </Link>
           </li>

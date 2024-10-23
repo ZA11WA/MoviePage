@@ -21,8 +21,8 @@ const Navbar = () => {
           <Link href="/topMovies" className="text-sm md:text-lg font-semibold hover:text-red-400">
             Top Movies
           </Link>
-          <Link href="/test" className="text-sm md:text-lg font-semibold hover:text-red-400">
-            Test
+          <Link href="/about" className="text-sm md:text-lg font-semibold hover:text-red-400">
+            About
           </Link>
         </div>
       </div>

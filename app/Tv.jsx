@@ -7,13 +7,13 @@ export default function Tv({ title, id, poster_path, release_date, vote_average 
   return (
     <div>
       <Link href={`/tv/${id}`}> {/* Poprawiona dynamiczna trasa */}
-      <div className="relative inline-block">
+      <div className="relative inline-block rounded-md">
           <Image
             src={imagePath + poster_path}
             width={800}
             height={800}
             alt={title}
-            className="block"
+            className="block rounded-md"
           />
           <h2
             className={`absolute bottom-2 right-2 flex items-center justify-center h-10 w-10 rounded-full bg-white bg-opacity-35 ${

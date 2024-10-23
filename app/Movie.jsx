@@ -19,7 +19,7 @@ export default function Movie({
             width={800}
             height={800}
             alt={title}
-            className="block"
+            className="block rounded-md"
           />
           <h2
             className={`absolute bottom-2 right-2 flex items-center justify-center h-10 w-10 rounded-full bg-white bg-opacity-35 ${
