@@ -3,7 +3,7 @@ import Image from "next/image";
 export default async function MovieDetail({ params }) {
   const { id } = params; // Dynamiczny parametr z URL
   const imagePath = "https://image.tmdb.org/t/p/original";
-  
+
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
   );
