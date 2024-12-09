@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+
+
 export default function Movie({
   title,
   id,
@@ -21,23 +23,23 @@ export default function Movie({
             alt={title}
             className="block rounded-md"
           />
-          <h2
-            className={`absolute bottom-2 right-2 flex items-center justify-center h-10 w-10 rounded-full bg-white bg-opacity-35 ${
-              vote_average >= 9.5
+          <div className={`absolute bottom-0 right-0 flex items-center justify-center min-h-9 min-w-9 rounded-full ${
+              vote_average >= 8.5
                 ? "bg-green-600"
-                : vote_average >= 9
-                ? "bg-green-300"
                 : vote_average >= 8
-                ? "bg-orange-300"
+                ? "bg-green-300"
                 : vote_average >= 7
-                ? "bg-orange-500"
+                ? "bg-orange-300"
                 : vote_average >= 6
+                ? "bg-orange-500"
+                : vote_average >= 5
                 ? "bg-red-300"
                 : "bg-red-500"
-            }`}
-          >
-            {vote_average.toFixed(1)}
-          </h2>
+            }`}>
+            <h2 className="flex items-center justify-center h-7 w-7 rounded-full bg-black text-white ">
+              {vote_average.toFixed(1)}
+            </h2>
+          </div>
         </div>
       </Link>
 

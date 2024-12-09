@@ -1,0 +1,24 @@
+.carouselWrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel {
+    display: flex;
+    animation: scroll 12s linear infinite; /* Adjust speed with duration */
+  }
+  
+  .carouselWrapper:hover .carousel {
+    animation-play-state: paused; /* Pause on hover */
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%); /* Scroll to half the width of the duplicated content */
+    }
+  }
+  

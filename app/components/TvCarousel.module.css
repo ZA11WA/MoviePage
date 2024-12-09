@@ -1,0 +1,24 @@
+.carouselWrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel {
+    display: flex;
+    animation: scrollReverse 12s linear infinite; /* Adjust speed with duration */
+  }
+  
+  .carouselWrapper:hover .carousel {
+    animation-play-state: paused; /* Pause on hover */
+  }
+  
+  @keyframes scrollReverse {
+    from {
+      transform: translateX(-50%); /* Start with items shifted left */
+    }
+    to {
+      transform: translateX(0); /* Move items back to their original position */
+    }
+  }
+  

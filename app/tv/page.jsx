@@ -2,7 +2,7 @@ import Tv from "../Tv"; // Zakładam, że komponent Tv jest w folderze tv
 
 const Tvs = async () => {
   const data = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`,
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
     { next: { revalidate: 60 } }
   );
   const res = await data.json();

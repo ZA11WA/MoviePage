@@ -6,7 +6,7 @@ export default async function MovieDetail({ params }) {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   );
   const res = await data.json();
 

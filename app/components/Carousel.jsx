@@ -1,40 +1,45 @@
 'use client';
-import { useEffect, useRef } from 'react';
-import Link from 'next/link'; // Import the Link component for navigation
 
-export default function CarouselSlider({ movies = [] }) {
-  const duplicatedMovies = [...movies, ...movies];
+import { useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import styles from './MovieCarousel.module.css'; // Import CSS module
+
+/**
+ * Movie Carousel Component
+ * @param {Object} props - Component props
+ * @param {Array} props.movies - List of movies to display
+ */
+export default function MovieCarousel({ movies = [] }) {
   const carouselRef = useRef(null);
 
-  useEffect(() => {
-    const ul = carouselRef.current;
-    if (ul) {
-      ul.insertAdjacentHTML('afterend', ul.outerHTML); // Duplicate for infinite effect
-      ul.nextSibling.setAttribute('aria-hidden', 'true'); // Set aria-hidden to hide the duplicate from screen readers
-    }
-  }, []);
-
   return (
-    <div className="relative w-full flex">
-      {/* Gradient overlay for fading effect on the sides */}
-      <div className="absolute top-0 left-0 w-[128px] h-full bg-gradient-to-r from-black z-10"></div>
-      <div className="absolute top-0 right-0 w-[128px] h-full bg-gradient-to-l from-black z-10"></div>
-
-      {/* The slide track container */}
-      <ul ref={carouselRef} className="flex items-center justify-start animate-scrollRight space-x-4">
-        {duplicatedMovies.map((movie, index) => (
-          <li key={index} className="flex-none w-[250px] h-[250px] p-2">
-            {/* Wrap the image in a Link to navigate to the movie detail page */}
-            <Link href={`/movie/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+    <div 
+      className={`relative group overflow-hidden ${styles.carouselWrapper}`} // Apply animation class
+    >
+      <div 
+        ref={carouselRef} 
+        className={`flex space-x-4 py-4 ${styles.carousel}`}
+      >
+        {movies.concat(movies).map((movie, index) => ( // Duplicate items for infinite scrolling
+          <Link
+            key={`${movie.id}-${index}`}
+            href={`/movie/${movie.id}`}
+            className="flex-shrink-0 w-[250px] h-[375px] transition-transform duration-300 hover:scale-105"
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
-                className="w-full h-full  cursor-pointer rounded-md" // Ensure cursor indicates clickability
+                fill
+                sizes="(max-width: 768px) 250px, 375px"
+                className="object-cover rounded-lg shadow-lg"
+                priority={false}
               />
-            </Link>
-          </li>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
