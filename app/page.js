@@ -8,31 +8,30 @@ import { auth } from './lib/firebaseConfig';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
+// Import SidebarComponent here
+import SidebarComponent from './components/SidebarComponent';
+
 export default async function Home() {
   return (
-    
-      <div className="container mx-auto px-4 py-8 space-y-12 bg-black text-white">
-        {/* Header with Logout Button */}
-        <header className="flex justify-between items-center">
-          <h1 className="text-4xl font-bold">Log in to add movies to your library!</h1>
-          
-        </header>
+    <div className="container mx-auto px-4 py-8 space-y-12 bg-black text-white">
+      {/* SidebarComponent is now added here */}
+      
 
-        <section>
-          <h1 className="text-3xl font-bold mb-6">Popular Movies</h1>
-          <Suspense fallback={<CarouselSkeleton />}>
-            <MovieCarouselWrapper />
-          </Suspense>
-        </section>
-        
-        <section>
-          <h1 className="text-3xl font-bold mb-6">Popular TV Shows</h1>
-          <Suspense fallback={<CarouselSkeleton />}>
-            <TvCarouselWrapper />
-          </Suspense>
-        </section>
-      </div>
-    
+      {/* Main Content */}
+      <section>
+        <h1 className="text-3xl font-bold mb-6">Popular Movies</h1>
+        <Suspense fallback={<CarouselSkeleton />}>
+          <MovieCarouselWrapper />
+        </Suspense>
+      </section>
+      
+      <section>
+        <h1 className="text-3xl font-bold mb-6">Popular TV Shows</h1>
+        <Suspense fallback={<CarouselSkeleton />}>
+          <TvCarouselWrapper />
+        </Suspense>
+      </section>
+    </div>
   );
 }
 
@@ -58,5 +57,3 @@ function CarouselSkeleton() {
     </div>
   );
 }
-
-

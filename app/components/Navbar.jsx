@@ -51,7 +51,7 @@ const Navbar = () => {
 
   return (
     <div className="mb-16">
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${showNavbar ? "transform translate-y-0" : "transform -translate-y-full"} bg-black rounded-b-md shadow-md mb-10 flex items-center justify-between py-3 px-4`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 bg-black rounded-b-md shadow-md mb-10 flex items-center justify-between py-3 px-4`}>
         <div className="flex-shrink-0">
           <Link href="/" className="text-lg md:text-xl font-semibold hover:text-red-400">
             <AiOutlineHome size={24} />
@@ -69,9 +69,7 @@ const Navbar = () => {
             <Link href="/topMovies" className="text-sm md:text-lg font-semibold hover:text-red-400">
               Top Movies
             </Link>
-            <Link href="/about" className="text-sm md:text-lg font-semibold hover:text-red-400">
-              About
-            </Link>
+            
           </div>
         </div>
 
