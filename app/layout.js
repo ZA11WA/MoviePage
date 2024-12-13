@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-gradient-to-r bg-black`}>
+      <body className={`${montserrat.className} bg-gradient-to-r bg-black ml-24`}>
       <SidebarComponent/>
         {children}
       </body>

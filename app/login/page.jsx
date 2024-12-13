@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { auth } from "../lib/firebaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -17,6 +17,27 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/"); // Redirect to homepage
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      router.push("/"); // Redirect to homepage
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setError(null);
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      router.push("/"); // Redirect to homepage after registration
     } catch (err) {
       setError(err.message);
     }
@@ -55,6 +76,24 @@ export default function LoginPage() {
           className="w-full bg-blue-600 hover:bg-blue-700 p-2 rounded font-bold"
         >
           Log in
+        </button>
+
+        {/* Google Login Button */}
+        <button
+          type="button"
+          onClick={handleGoogleLogin}
+          className="w-full bg-red-600 hover:bg-red-700 p-2 rounded font-bold mt-4"
+        >
+          Log in with Google
+        </button>
+
+        {/* Register Button */}
+        <button
+          type="submit"
+          onClick={handleRegister}
+          className="w-full bg-green-600 hover:bg-green-700 p-2 rounded font-bold mt-4"
+        >
+          Register
         </button>
       </form>
     </div>

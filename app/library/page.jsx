@@ -40,12 +40,13 @@ export default function Library() {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <>
       {loading ? (
         <p>Loading...</p>
       ) : library.length === 0 ? (
         <p>Your library is empty!</p>
       ) : (
+        <div className="flex flex-col items-center">
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
           {library.map((movie) => (
             <div key={movie.id} className="relative inline-block">
@@ -61,19 +62,20 @@ export default function Library() {
                   {/* Rating Badge */}
                   <div
                     className={`absolute bottom-0 right-0 flex items-center justify-center min-h-9 min-w-9 rounded-full ${getRatingColor(movie.vote_average)}`}
-                  >
+                    >
                     <h2 className="flex items-center justify-center h-7 w-7 rounded-full bg-black text-white">
                       {movie.vote_average.toFixed(1)}
                     </h2>
                   </div>
                 </div>
               </Link>
-              <h3 className="mt-2 text-center">{movie.title}</h3>
-              <p className="text-center">{movie.release_date}</p>
+              <h3 className=" ">{movie.title}</h3>
+              <p className="">{movie.release_date}</p>
             </div>
           ))}
         </div>
+          </div>
       )}
-    </div>
+    </>
   );
 }
