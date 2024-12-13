@@ -38,7 +38,7 @@ const Movies = () => {
   }, [handleScroll]);
 
   return ( 
-    <div className="flex flex-col items-center">
+    <div className=" flex flex-col items-center">
       <div className="grid gap-4 grid-cols-2 sm:grid-cols-4 mx-auto ">
         {movies.map((movie) => (
           <Movie
