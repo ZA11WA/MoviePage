@@ -49,6 +49,7 @@ export default function Library() {
         <div className="flex flex-col items-center">
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-4 mx-auto">
           {library.map((movie) => (
+            
             <div key={movie.id} className="relative inline-block">
               <Link href={`/movie/${movie.id}`}>
                 <div className="relative inline-block">
@@ -70,6 +71,7 @@ export default function Library() {
                 </div>
               </Link>
               <h3 className=" ">{movie.title}</h3>
+              
               <p className="">{movie.release_date}</p>
             </div>
           ))}

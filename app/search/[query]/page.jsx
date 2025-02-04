@@ -84,7 +84,7 @@ const SearchPage = () => {
   return (
     <div className="flex flex-col items-center">
       {/* Pole wyszukiwania */}
-      <div className="w-full p-4 bg-gray-800">
+      <div className="w-full p-4 bg-black">
         <form onSubmit={handleSearchSubmit} className="flex items-center justify-center">
           <input
             type="text"
@@ -119,7 +119,7 @@ const SearchPage = () => {
       ) : (
         <div className="w-full">
           {/* Movies */}
-          <div className="mb-8">
+          <div className="mb-8  text-center">
             <h2 className="text-xl font-semibold mb-4">Movies</h2>
             {(() => {
               const { exactMatches, similarTitles } = groupResults(movies, query);

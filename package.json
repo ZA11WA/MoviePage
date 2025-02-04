@@ -26,6 +26,7 @@
     "tailwind-scrollbar": "^3.1.0"
   },
   "devDependencies": {
+    "@gradio/client": "^1.8.0",
     "@types/react": "19.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
